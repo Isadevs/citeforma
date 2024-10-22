@@ -9,19 +9,40 @@ LINES TERMINATED BY '\n'
 
 INSERT INTO airport (airport, IATA_FAA, ICAO, city_id)
 SELECT 
-    t.airport,     
-    t.IATA_FAA,    
-    t.ICAO,        
-    c.id           
-FROM tmp t
-JOIN city c ON t.city=c.id; 
+    tmp.airport,     
+    tmp.IATA_FAA,    
+    tmp.ICAO,        
+    city.id           
+FROM tmp tmp
+JOIN city city ON tmp.city=city.city;  
 
-INSERT INTO airport (airport, IATA_FAA, ICAO, city_id)
+CREATE VIEW PeninsulaIberica 
+AS SELECT PeninsulaIberica AS  airport
+FROM airport WHERE airport.airport="Península Ibérica";
+
+CREATE VIEW IberiaPeninsulaAirport AS
 SELECT 
-    t.airport,     
-    t.IATA_FAA,    
-    t.ICAO,        
-    c.id           -- id correto da cidade
-FROM tmp t
-JOIN city c ON t.city=c.id;  -- Ajuste a coluna conforme necessário
+    airport.airport AS airport,
+    city.city AS city,
+    airport.IATA_FAA,
+    airport.ICAO
+FROM 
+    airport
+INNER JOIN 
+    city ON airport.city_id = city.id
+INNER JOIN 
+    country ON city.countryID = country.id
+WHERE 
+    country.country IN ('Spain', 'Portugal');
+
+--2.Faça a exportação para um ficheiro CSV da VIEW que criou.
+SELECT * FROM IberiaPeninsulaAirport
+INTO OUTFILE '/var/lib/mysql-files/IberiaPeninsulaAirport.csv'
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"' 
+LINES TERMINATED BY '\n';
+
+--3.Faça um Backup da BD Airports
+mysqldump -u root -p Airport > bdAirports.sql
+
 

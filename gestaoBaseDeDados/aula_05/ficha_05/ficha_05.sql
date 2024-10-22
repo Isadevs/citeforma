@@ -16,10 +16,6 @@ SELECT
 FROM tmp tmp
 JOIN city city ON tmp.city=city.city;  
 
-CREATE VIEW PeninsulaIberica 
-AS SELECT PeninsulaIberica AS  airport
-FROM airport WHERE airport.airport="Península Ibérica";
-
 CREATE VIEW IberiaPeninsulaAirport AS
 SELECT 
     airport.airport AS airport,

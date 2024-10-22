@@ -37,7 +37,6 @@ INSERT INTO country(codeCountry, country)
 ;
 
 --Criando a Tabela Regiao
-
 CREATE TABLE region (
     id INT AUTO_INCREMENT PRIMARY KEY,
     region VARCHAR(255) NOT NULL,
@@ -52,6 +51,25 @@ INSERT INTO region(region, codeCountry)
     INNER JOIN country ON Tmp.countryCode=country.codeCountry
     ORDER BY country.countryCode
 ;
+
+--criando a tabela port
+CREATE TABLE port (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    port VARCHAR(255) NOT NULL,
+    region VARCHAR(255) NOT NULL,
+    countryCode VARCHAR(2) NOT NULL
+    country VARCHAR (255)  NOT NULL
+    FOREIGN KEY(codeCountry) REFERENCES region(codeCountry)
+);
+
+-- povoando a tabela port
+INSERT INTO port(port, region)
+	SELECT DISTINCT region, region.id
+	FROM Tmp
+    INNER JOIN region ON Tmp.countryCode=country.codeCountry
+    ORDER BY country.countryCode
+;
+
 
 
 

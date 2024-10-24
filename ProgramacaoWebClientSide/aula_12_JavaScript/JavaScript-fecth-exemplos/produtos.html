@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch - Produtos</title>
+</head>
+<body>
+    <table border: "2" style="margin-left: 150px;" id="tabela">
+        <tr>
+            <th id="id" style="width:50px;" >ID</th>
+            <th id="name" style="width:350px;" >Name</th>
+            <th id="price" style="width:50px;" >Price</th>
+            <th id="categoria" style="width: 200px;">Categoria</th>
+        </tr>
+
+        <tbody id="produtos">
+
+        </tbody>    
+    </table>
+
+    <script>
+        let table = document.getElementById('tabela');
+        let url = 'https://dummyapi.online/api/users';
+
+        fetch(url)
+            .then(response => response.json()).then(data =>
+                {
+                    const dados = Array.from(data);
+
+                        for(let i = 0; i < dados.length; i++)
+                        {
+                            let table = document.getElementById("produtos")
+                            let row = table.insertRow(-1)
+
+                            let cell1 = row.inse
+                        }
+                }
+            )
+
+    </script>
+
+</body>
+</html>

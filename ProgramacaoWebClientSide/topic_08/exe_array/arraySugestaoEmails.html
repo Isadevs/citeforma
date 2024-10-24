@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugestao Emails</title>
+</head>
+<body>
+    
+    <p>Email1: </p><span id="email1"></span>
+    <p>Email2: </p><span id="email2"></span>
+    <p>Email3: </p><span id="email3"></span>
+    <p>Email4: </p><span id="email4"></span>
+    <p>Primeiro Nome:</p><span id="primeiro"></span>
+    <p>Nome do Meio:</p><span id="meio"></span>
+    <p>Ultimo Nome:</p><span id="ultimoNome"></span>
+
+    <script>
+        let nome = "Isabella Cristina Rodrigues Ramos";
+        let primeiroNome = [];
+        let nomeDoMeio = [];
+        let ultimoNome = [];
+        let cont = 0;
+
+        //let str = nome.replace(/\s/g, '');
+        //cont para contar os espaços
+
+        for(let i = 0; nome.length; i++)
+        {
+           ultimoNome[i] = slice(nome[i] == " ", nome[i] == " ");
+        }
+
+
+        document.getElementById('ultimoNome').innerText = ultimoNome
+        
+
+        /*str = nome.slice(10,17);
+        document.getElementById('email1').innerText = str+"@email.com";
+        
+        let sugestao2 = nome.slice(10,17);
+        document.getElementById('email2').innerText = sugestao2+"@email.com";*/
+
+        
+
+        function Remover(s) {
+            var r = s.toLowerCase();
+            r = r.replace(new RegExp(/[àáâãäå]/g), "a");
+            r = r.replace(new RegExp(/ç/g), "c");
+            r = r.replace(new RegExp(/[èéêë]/g), "e");
+            r = r.replace(new RegExp(/[ìíîï]/g), "i");
+            r = r.replace(new RegExp(/[òóôõö]/g), "o");
+            r = r.replace(new RegExp(/[ùúûü]/g), "u");
+            return r;
+        };
+
+    </script>
+    
+</body>
+</html>

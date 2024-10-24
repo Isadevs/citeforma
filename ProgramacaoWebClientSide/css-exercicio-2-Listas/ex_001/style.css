@@ -1,0 +1,43 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.opcoes-lista {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.opcao {
+    text-decoration: none;
+    color: white;
+    background-color: #00334e;
+    padding: 15px 30px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.opcao:hover {
+    background-color: #005577;
+}
+
+.opcao-4 {
+    background-color: #a3c1d9;
+    color: #00334e;
+}
+
+/* Mudar o estilo da opção 4 quando o mouse passa por outra opção */
+.opcao:hover ~ .opcao-4 {
+    background-color: #d9e7f3;
+    color: #00334e;
+}

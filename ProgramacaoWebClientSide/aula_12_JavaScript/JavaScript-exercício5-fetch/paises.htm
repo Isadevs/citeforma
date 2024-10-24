@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Países</title>
+</head>
+<body>
+    <h1>País</h1>
+
+    <table id="tabela">
+        <thead>
+            <tr id="bandeira"></tr>
+            <td id="name"></td>
+        </thead>
+        <tbody id="paises"></tbody>
+    </table>
+
+    <script>
+        let url = 'https://restcountries.com/v3.1/all'
+
+        document.getElementById('tabela');
+
+        fetch(url)
+            .then(response => response.json()).then(data =>
+                {
+                    const dados = Array.from(data);
+
+                        for(let i = 0; i < dados.length; i++)
+                        {
+                            let table = document.getElementById("name")
+                            let row = table.insertRow(-1)
+
+                            let cell1 = row.inse
+                        }
+                }
+            )
+
+    </script>
+</body>
+</html>

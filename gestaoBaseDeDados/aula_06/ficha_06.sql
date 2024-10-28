@@ -94,12 +94,13 @@ GRANT SELECT ON WorldPort.* TO 'usuario'@'host';
 --tmpPort” - Leitura de todas as tabelas da BD WorldPort
 
 GRANT SELECT ON WorldPort.* TO 'tmpPort'@'localhost';
-
 --“usrPort” - Leitura de todas as tabelas da BD WorldPort e escrita na tabela Port.
-GRANT SELECT ON WorldPort.* TO 'usrPort'@'localhost';
-GRANT INSERT, UPDATE, DELETE ON WorldPort.port TO 'usrPort'@'localhost';
 
+GRANT SELECT ON WorldPort.* TO 'usrPort'@'localhost';
+
+GRANT INSERT, UPDATE, DELETE ON WorldPort.port TO 'usrPort'@'localhost';
 --admPort” - Permissões totais sobre a BD WorldPort.
+
 GRANT ALL PRIVILEGES ON WorldPort.* TO 'admPort'@'localhost';
 
 --4.Retire todas as permissões ao utilizador “tmpPort”;

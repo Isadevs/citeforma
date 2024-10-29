@@ -63,7 +63,6 @@ FROM Temp
 INNER JOIN country ON Temp.country = country.country
 
 -- modificando as ordens das colunas:
-
 ALTER TABLE airline
 MODIFY COLUMN alias VARCHAR(255) FIRST,               
 MODIFY COLUMN IATA CHAR(3) AFTER alias,               
@@ -127,7 +126,6 @@ INNER JOIN
 WHERE 
     country.country IN ('Spain');
 --7. (3 val.) Faça a exportação das Views que criou para ficheiros csv.
-
 SELECT * FROM SpainlAirlines
 INTO OUTFILE '/var/lib/mysql-files/SpainlAirlines.csv'
 FIELDS TERMINATED BY ';' 

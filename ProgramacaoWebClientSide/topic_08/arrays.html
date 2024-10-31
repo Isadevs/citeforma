@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+
+    <h1>ARRAY ORDENADO DECRESCENTE: </h1>
+    <span id = 'valores'></span>
+
+    <h1>ARRAY ORDENADO CRESCENTE: </h1>
+    <span id = 'crescente'></span>
+
+
+<script>
+
+    /*const numeros = [3,4,5,-5,-6,2,-9];
+    //quantos numeros negativos?
+    for(let i = 0; numeros.length; i++)
+    {
+        if(numeros[i] < 0)
+        {
+            contador++;
+        }
+    }*/
+    // contador positivo
+    let contadorPositivo = numeros.filter(n=> n > 0).length;
+    let pares = numeros.filter(n=>n%2==0);
+    let imparesNegativos = numeros.filter(n=>n%2==1).filter(n=> n < 0);
+    let paresNegativos = numeros.filter(n=>n%2==0).filter(n=> n < 0);
+
+    //filter cria um novo array
+
+    const numeros = [8,60,7,1,40,50,2];
+
+    numeros.sort(function (a,b)
+    {
+        if (a > b)
+            return 1;
+        if (a < b)
+            return - 1; 
+        return (0);
+    });
+        numeros.sort((a , b) => a - b);
+        numeros.reverse();
+        document.getElementById('valores').innerText = numeros;
+
+        numeros.sort((a , b) => a - b);
+        document.getElementById('crescente').innerText = numeros;
+  
+
+
+
+</script>
+
+</body>
+</html>

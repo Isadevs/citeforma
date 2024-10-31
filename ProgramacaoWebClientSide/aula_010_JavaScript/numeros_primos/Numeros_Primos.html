@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros - Primos e Compostos</title>
+</head>
+<body style="text-align: center";> 
+    <form action="" method="get">
+        <h1 style="margin-top: 30px;">Números Primos e Compostos:</h1>
+
+        Número: <input type="number" placeholder="Número" required id="numero">
+        <br>
+        <br>
+        <hr style="width: 350px; margin-bottom: 30px;">
+        <input type="button" value="Verificar" id="numero" onclick="num_primo()">
+        <br>
+        <hr style="width: 350px; margin-top: 35px;">
+        Nº de Divisores: <span id="divisores">[nº de divisores]</span>
+        <br>
+        <br>
+        <hr style="width: 350px;">
+        Tipo: <span id="primo_composto">[Primo ou Composto]</span>
+        <hr style="width: 350px;">
+    </form>
+
+    <script>
+        function num_primo()
+        {
+            let num, primo = 0, divisores = 0, i = 0;
+            
+            num =  parseInt(document.getElementById('numero').value);
+           
+            while(i <= num)
+            {
+                if(num % 1 == 0 && num % num == 0)
+                {
+                    primo++;              
+                    if(num % i == 0)
+                    {
+                        divisores++;
+                    }
+                }
+                i++;
+            }
+
+            if(divisores > 2)
+            {
+                document.getElementById('divisores').innerHTML = divisores;
+                document.getElementById('primo_composto').innerHTML = 'É composto';
+            }else{
+                document.getElementById('divisores').innerHTML = '2';
+                document.getElementById('primo_composto').innerHTML = 'É primo';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+</head>
+<body style="text-align: center; margin-top: 30px;">
+    <h1>Factorial</h1>
+
+    <form action="" method="get">   
+        Número:<input type="number" required id="numero">
+        <br>
+        <br>
+        <hr style="width: 350px;">
+
+        <input type="button" value="Calcular - Iterativo" id="iterativo" onclick="factorialIterativo()"> 
+
+        <input type="button" value="Calcular - Recursivo" id="recursivo" onclick="factorialRecursivo()">
+
+        <span id="factorial">(factorial)</span>
+        <span id="resultado">(resultado)</span>
+
+        <hr style="width: 350px;">
+    </form>
+
+    <script>
+
+        function factorialIterativo()
+        {
+            let num, aux, factorial;
+
+            num = parseInt(document.getElementById('numero').value);
+            
+
+            factorial = num;
+
+            for(let i = num; i > 1; i--)
+            {
+                factorial = factorial * (i-1);
+                document.getElementById('factorial').innerHTML = i + '!';
+            }
+
+            document.getElementById('resultado').innerHTML = '=' + factorial;
+        }
+        
+    </script>
+</body>
+</html>

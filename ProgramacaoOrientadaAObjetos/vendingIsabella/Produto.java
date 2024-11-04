@@ -12,7 +12,6 @@ public class Produto {
         this.validade = validade;
     }
 
-
     //Atributo:
     private String nome;
     private Double preco;

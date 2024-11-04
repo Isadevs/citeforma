@@ -1,0 +1,3 @@
+[submodule "ProgramacaoOrientadaAObjetos/ProjetoFinal/VendingMachine"]
+	path = ProgramacaoOrientadaAObjetos/ProjetoFinal/VendingMachine
+	url = https://github.com/doctor-ricco/VendingMachine.git

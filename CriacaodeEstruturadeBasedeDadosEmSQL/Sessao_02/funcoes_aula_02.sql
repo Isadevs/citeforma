@@ -177,5 +177,5 @@ END$$
 DELIMITER ;
     
     
-
+SELECT * FROM Matches limit 10;
 

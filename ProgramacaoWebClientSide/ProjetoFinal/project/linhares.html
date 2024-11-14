@@ -3,203 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperatura Automática - Aldeias Históricas</title>
+    <title>Projetos - Aldeias Históricas</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        .weather-icon {
-            width: 50px;
-            height: auto;
-        }
-        .carousel-inner img {
-            margin: 0 auto;
-        }
-        .carousel-item {
-            text-align: center;
-        }
-        #map-container {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #map {
-            width: 100%;
-            height: 400px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <!-- Barra de navegação com Bootstrap -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">
                 <img src="./castle.svg" alt="Home" class="home-icon" width="30px">
                 Aldeias Históricas
             </a>
+            
+            <!-- Botão do colapso para mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu de navegação -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aldeiasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Aldeias Históricas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="aldeiasDropdown">
+                            <a class="dropdown-item" href="./linhares.html">Linhares da Beira</a>
+                            <a class="dropdown-item" href="./marialva.html">Marialva</a>
+                            <a class="dropdown-item" href="./monsanto.html">Monsanto</a>
+                            <a class="dropdown-item" href="./casteloRodrigo.html">Castelo Rodrigo</a>
+                            <a class="dropdown-item" href="./almeida.html">Almeida</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Links de autenticação à direita -->
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="#">Registo</a>
+                </div>
+            </div>
         </nav>
     </header>
 
     <main>
-        <div class="container mt-4">
-            <h2>Temperatura e Clima nas Aldeias</h2>
-            <div class="row">
-                <!-- Coluna para o Mapa -->
-                <div class="col-md-4" id="map-container">
-                    <div id="map"></div>
-                </div>
-
-                <!-- Coluna para o Carrossel -->
-                <div class="col-md-8">
-                    <div id="weatherCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators" id="carousel-indicators">
-                            <!-- Indicadores dinâmicos serão adicionados aqui -->
-                        </ol>
-                        <div class="carousel-inner" id="carousel-inner">
-                            <!-- Slides dinâmicos serão inseridos aqui -->
-                        </div>
-                        <a class="carousel-control-prev" href="#weatherCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Anterior</span>
+        <div class="container">
+            <h2>Aldeias Históricas</h2>
+            
+            <!-- Slideshow (Carousel) -->
+            <div id="aldeiasCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="pagina-linhares.html">
+                            <img src="./imagens/linhares da beira/linhares1.jpg" class="d-block w-100" alt="Linhares da Beira">
                         </a>
-                        <a class="carousel-control-next" href="#weatherCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Próximo</span>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-marialva.html">
+                            <img src="./imagens/marialva/marialva1.jpg" class="d-block w-100" alt="Marialva">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-monsanto.html">
+                            <img src="./imagens/monsanto/monsanto1.jpg" class="d-block w-100" alt="Monsanto">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-castelo-rodrigo.html">
+                            <img src="./imagens/castelo rodrigo/castelo_rodrigo1.jpg" class="d-block w-100" alt="Castelo Rodrigo">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-almeida.html">
+                            <img src="./imagens/almeida/almeida1.jpg" class="d-block w-100" alt="Almeida">
                         </a>
                     </div>
                 </div>
+                <a class="carousel-control-prev" href="#aldeiasCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#aldeiasCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </div>
+    
+            <!-- Vídeo promocional -->
+            <h2 class="mt-5">Vídeo Promocional</h2>
+            <div class="ratio ratio-16x9" style="background-color:tomato;">
+                <iframe src="https://www.youtube.com/embed/kP2OtQrVm1o" title="Vídeo Promocional das Aldeias Históricas" allowfullscreen class="correcao-video w-100"></iframe>
+            </div>
+    
+            <!-- Mapa e Temperatura das Aldeias -->
+            <h2 class="mt-5">Mapas e Temperaturas das Aldeias</h2>
+            <div id="mapasCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Linhares da Beira</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106303.8837323922!2d-7.382145754139239!3d40.33313515209753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1bcb6a8a41999b%3A0x40abf64b1303bb62!2sLinhares%20da%20Beira%2C%20Portugal!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" class="correcao-video w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Temperatura em Linhares da Beira</h4>
+                                <p>Temperatura: 20°C</p>
+                                <p>Condições: Ensolarado</p>
+                                <p>Umidade: 45%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Marialva</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8173.179488508678!2d-7.172552019798474!3d40.41585246957412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1c9c64c46cc2db%3A0x90e12e5a4fd3df8c!2sMarialva%2C%20Portugal!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" class="correcao-video w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Temperatura em Marialva</h4>
+                                <p>Temperatura: 22°C</p>
+                                <p>Condições: Parcialmente Nublado</p>
+                                <p>Umidade: 50%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Monsanto</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106576.5655603827!2d-7.303858559422401!3d40.20563984455247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1cb7ae524f4e09%3A0xc2b5f8e3ab7f80ae!2sMonsanto%2C%20Portugal!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" class="correcao-video w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Temperatura em Monsanto</h4>
+                                <p>Temperatura: 19°C</p>
+                                <p>Condições: Nublado</p>
+                                <p>Umidade: 60%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Castelo Rodrigo</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106579.21978705211!2d-6.966528520555558!3d40.72161007606165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1cb0dbbc43c6c3%3A0xa7af19fa3f40e92d!2sCastelo%20Rodrigo%2C%20Portugal!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" class="correcao-video w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Temperatura em Castelo Rodrigo</h4>
+                                <p>Temperatura: 21°C</p>
+                                <p>Condições: Ensolarado</p>
+                                <p>Umidade: 40%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Almeida</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106576.1572637548!2d-6.717996052021005!3d40.42828008192791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1cb6c9a90958b%3A0x54ed4a5ff391e8c3!2sAlmeida%2C%20Portugal!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" class="correcao-video w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Temperatura em Almeida</h4>
+                                <p>Temperatura: 18°C</p>
+                                <p>Condições: Ensolarado</p>
+                                <p>Umidade: 55%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#mapasCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#mapasCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
             </div>
         </div>
+
+        
     </main>
-
+    
     <footer>
-        <div style="text-align: center;">
+        <!-- Conteúdo principal do footer -->
+         <div style="text-align: center;">
+            <br>
+            <br>
             <p>@Isabella Muniz</p>
-        </div>
+         </div>
     </footer>
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-    <script>
-        const aldeias = [
-            { nome: "Linhares da Beira", localId: 1010500, lat: 40.5262, lon: -7.4508 },
-            { nome: "Marialva", localId: 1010600, lat: 40.8997, lon: -7.2542 },
-            { nome: "Monsanto", localId: 1010700, lat: 40.0396, lon: -7.1178 },
-            { nome: "Castelo Rodrigo", localId: 1010800, lat: 40.8752, lon: -6.9638 },
-            { nome: "Almeida", localId: 1010900, lat: 40.7251, lon: -6.9075 }
-        ];
-
-        const carouselInner = document.getElementById('carousel-inner');
-        const carouselIndicators = document.getElementById('carousel-indicators');
-
-        let map;
-        let marker;
-
-        async function fetchWeatherData(localId) {
-            try {
-                const response = await fetch(`https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${localId}.json`);
-                if (!response.ok) throw new Error('Erro ao buscar dados da API');
-                const data = await response.json();
-                return data.data.slice(0, 5); // Retorna os próximos 5 dias
-            } catch (error) {
-                console.error(`Erro ao buscar dados para localId ${localId}:`, error);
-                return [];
-            }
-        }
-
-        function getWeatherIcon(condition) {
-            if (condition.toLowerCase().includes('chuva')) {
-                return './imagens/chuva.png';
-            } else if (condition.toLowerCase().includes('nuvens') || condition.toLowerCase().includes('nublado')) {
-                return './imagens/nublado.png';
-            } else if (condition.toLowerCase().includes('sol')) {
-                return './imagens/sol.png';
-            } else {
-                return './imagens/aguaceiros.png';
-            }
-        }
-
-        function updateMap(lat, lon) {
-            if (!map) {
-                map = L.map('map').setView([lat, lon], 13); // Configura o mapa inicialmente
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '© OpenStreetMap contributors'
-                }).addTo(map);
-
-                marker = L.marker([lat, lon]).addTo(map);
-            } else {
-                map.setView([lat, lon], 13);
-                marker.setLatLng([lat, lon]);
-            }
-        }
-
-        async function loadWeather() {
-            for (let i = 0; i < aldeias.length; i++) {
-                const aldeia = aldeias[i];
-                const weatherData = await fetchWeatherData(aldeia.localId);
-
-                // Adiciona o indicador do carrossel
-                const indicator = document.createElement('li');
-                indicator.setAttribute('data-target', '#weatherCarousel');
-                indicator.setAttribute('data-slide-to', i);
-                if (i === 0) indicator.classList.add('active');  // Apenas o primeiro indicador deve ser 'active'
-                carouselIndicators.appendChild(indicator);
-
-                // Cria o slide do carrossel
-                const slide = document.createElement('div');
-                slide.className = `carousel-item ${i === 0 ? 'active' : ''}`;  // Apenas o primeiro slide é 'active'
-                slide.innerHTML = `<h4>${aldeia.nome}</h4>`;
-
-                if (weatherData.length === 0) {
-                    // Exibe mensagem de erro se não houver dados para a cidade
-                    slide.innerHTML += `<p>Erro ao carregar dados para ${aldeia.nome}.</p>`;
-                } else {
-                    weatherData.forEach(day => {
-                        const date = new Date(day.forecastDate).toLocaleDateString('pt-PT');
-                        const icon = getWeatherIcon(day.predWindDir || 'nuvens'); // Condição para determinar o ícone
-                        slide.innerHTML += `
-                            <div>
-                                <p>${date}: ${day.tMin}°C - ${day.tMax}°C</p>
-                                <img src="${icon}" alt="Condição Climática" class="weather-icon">
-                            </div>
-                        `;
-                    });
-                }
-
-                // Adiciona o slide no carrossel
-                carouselInner.appendChild(slide);
-
-                // Atualiza o mapa com a localização da aldeia (somente no primeiro slide)
-                if (i === 0) {
-                    updateMap(aldeia.lat, aldeia.lon);
-                }
-            }
-
-            // Atualiza o mapa e os indicadores quando o slide mudar
-            $('#weatherCarousel').on('slid.bs.carousel', function (e) {
-                const activeIndex = $(e.relatedTarget).index();  // Obtém o índice do slide ativo
-
-                // Remove a classe 'active' de todos os indicadores e slides
-                $('#carousel-indicators li').removeClass('active');
-                $('#carousel-inner .carousel-item').removeClass('active');
-
-                // Adiciona a classe 'active' ao slide e indicador corretos
-                $('#carousel-indicators li').eq(activeIndex).addClass('active');
-                $('#carousel-inner .carousel-item').eq(activeIndex).addClass('active');
-
-                // Atualiza o mapa com a nova localização
-                const aldeia = aldeias[activeIndex];
-                updateMap(aldeia.lat, aldeia.lon);
-            });
-        }
-
-        // Chama a função para carregar o clima assim que a página for carregada
-        loadWeather();
-    </script>
-</body>
-</html>

@@ -2,11 +2,5 @@
 /shelf/
 /workspace.xml
 # Ignorar pastas do Visual Studio
-.vs/
-*.vsidx
-*.vscode/
-*.dll
-*.config
-bin/
-obj/
+
 

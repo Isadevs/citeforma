@@ -1,68 +1,78 @@
 """
-Programa para gestÃ£o do catÃ¡logo de produtos. Este programa permite:
-    - Listar o catÃ¡logo
+Programa para gestão do catálogo de produtos. Este programa permite:
+    - Listar o catálogo
     - Pesquisar por alguns campos 
-    - Eliminar um registo do catÃ¡logo
-    - Guardar o catÃ¡logo em ficheiro
+    - Eliminar um registo do catálogo
+    - Guardar o catálogo em ficheiro
 """
 
 from decimal import Decimal as dec
 import re
-from typing import TextIO
+from typing import Iterable, TextIO
 
 
 CSV_DELIM = ','
 PRODUCT_TYPES = {
-    "AL": "AlimentaÃ§Ã£o",
-    "DL": "Detergentes p/ LoiÃ§a",
+    "AL": "Alimentação",
+    "DL": "Detergentes p/ Loiça",
     "FRL": "Frutas e Legumes",
 }
 
 
-class Produto:
-    # id, designacao,tipo/categoria,quantidade,preco unitÃ¡rio
+class Product:
+    # id, designacao,tipo/categoria,quantidade,preco unitário
     def __init__(
             self,
-            id_: int,  # > 0 e cinco dÃ­gitos
-            nome: str,  # pelo menos 2 palavras com pelo menos 2 cars.
-            tipo: str,  # tipo sÃ³ pode ser 'AL', 'DL', 'FRL'
-            quantidade: int,  # >= 0
-            preco: dec,  # >= 0
+            id_: int,        # > 0 e cinco dígitos
+            name: str,       # pelo menos 2 palavras com pelo menos 2 cars.
+            prod_type: str,  # tipo só pode ser 'AL', 'DL', 'FRL'
+            quantity: int,   # >= 0
+            price: dec,      # >= 0
     ):
-        # 1. Validar parÃ¢metros
+        # 1. Validar parâmetros
         if id_ <= 0 or len(str(id_)) != 5:
-            raise InvalidProdAttr(f"{id_=} invÃ¡lido (deve ser > 0 e ter 5 dÃ­gitos)")
+            raise InvalidProdAttr(f"{id_=} inválido (deve ser > 0 e ter 5 dígitos)")
 
-        if not valida_nome(nome):
-            raise InvalidProdAttr(f"{nome=} invÃ¡lido")
+        if not Product.validate_name(name):
+            raise InvalidProdAttr(f"{name=} inválido")
 
-        if tipo not in PRODUCT_TYPES:
-            raise InvalidProdAttr(f"{tipo=}: tipo nÃ£o reconhecido.")
+        if prod_type not in PRODUCT_TYPES:
+            raise InvalidProdAttr(f"{prod_type=}: tipo não reconhecido.")
 
-        if quantidade < 0:
-            raise InvalidProdAttr(f"{quantidade=} invÃ¡lida (deve ser >= 0)")
+        if quantity < 0:
+            raise InvalidProdAttr(f"{quantity=} inválida (deve ser >= 0)")
 
-        if preco < 0:
-            raise InvalidProdAttr(f"{preco=} invÃ¡lido (deve ser >= 0)")
+        if price < 0:
+            raise InvalidProdAttr(f"{price=} inválido (deve ser >= 0)")
 
         # 2. Inicializar/definir o objecto
         self.id = id_
-        self.name = nome
-        self.tipo = tipo
-        self.quantidade = quantidade
-        self.preco = preco
+        self.name = name
+        self.prod_type = prod_type
+        self.quantity = quantity
+        self.price = price
     #:
 
     @classmethod
-    def from_csv(cls, csv: str, csv_delim = CSV_DELIM) -> 'Produto':
+    def from_csv(cls, csv: str, csv_delim = CSV_DELIM) -> 'Product':
         attrs = csv.split(csv_delim)
-        return Produto(
-            id_= int(attrs[0]),
-            nome = attrs[1],
-            tipo = attrs[2],
-            quantidade = int(attrs[3]),
-            preco = dec(attrs[4])
+        return Product(
+            id_= int(attrs[0].strip()),
+            name = attrs[1].strip(),
+            prod_type = attrs[2].strip(),
+            quantity = int(attrs[3].strip()),
+            price = dec(attrs[4].strip())
         )
+    #:
+
+    def to_csv(self, csv_delim = CSV_DELIM) -> str:
+        return csv_delim.join((
+            str(self.id),
+            self.name,
+            self.prod_type,
+            str(self.quantity),
+            str(self.price),
+        ))
     #:
 
     def __str__(self) -> str:
@@ -71,19 +81,27 @@ class Produto:
 
     def __repr__(self) -> str:
         cls_name = self.__class__.__name__
-        return f"{cls_name}({self.id}, '{self.name}', '{self.tipo}', {self.quantidade}, Decimal('{self.preco}'))"
+        return f"{cls_name}({self.id}, '{self.name}', '{self.prod_type}', {self.quantity}, Decimal('{self.price}'))"
     #:
+
+    def __eq__(self, o) -> bool:  
+        if not isinstance(o, Product):
+            return False
+        return self.id == o.id
+    #:  
 
     @property
     def desc_tipo(self) -> str:
-        return PRODUCT_TYPES[self.tipo]
+        return PRODUCT_TYPES[self.prod_type]
+    #:
+
+    @staticmethod
+    def validate_name(name: str) -> bool:
+        com_acento = 'ñãàáâäåéèêęēëóõôòöōíîìïįīúüùûūÑÃÀÁÂÄÅÉÈÊĘĒËÓÕÔÒÖŌÍÎÌÏĮĪÚÜÙÛŪ'
+        return bool(re.fullmatch(rf"[a-zA-Z{com_acento}]{{2,}}(\s+[a-zA-Z{com_acento}]{{2,}})*", name))
     #:
 #:
 
-def valida_nome(nome: str) -> bool:
-    com_acento = 'Ã±Ã£Ã Ã¡Ã¢Ã¤Ã¥Ã©Ã¨ÃªÄ™Ä“Ã«Ã³ÃµÃ´Ã²Ã¶ÅÃ­Ã®Ã¬Ã¯Ä¯Ä«ÃºÃ¼Ã¹Ã»Å«Ã‘ÃƒÃ€ÃÃ‚Ã„Ã…Ã‰ÃˆÃŠÄ˜Ä’Ã‹Ã“Ã•Ã”Ã’Ã–ÅŒÃÃŽÃŒÃÄ®ÄªÃšÃœÃ™Ã›Åª'
-    return bool(re.fullmatch(rf"[a-zA-Z{com_acento}]{{2,}}(\s+[a-zA-Z{com_acento}]{{2,}})*", nome))
-#:
 
 class InvalidProdAttr(ValueError):
     """
@@ -92,39 +110,67 @@ class InvalidProdAttr(ValueError):
 #:
 
 class ProductCollection:
-    def __init__(self):
-        self._produtos: list[Produto] = []
+    def __init__(self, initial_values: Iterable[Product] = ()):
+        self._products: list[Product] = []
+        for prod in initial_values:
+            self.append(prod)
     #:
 
     @classmethod
-    def from_csv(cls, csv_path: str) -> 'ProductCollection':
+    def from_csv(cls, csv_path: str, encoding = 'UTF-8') -> 'ProductCollection':
         prods = ProductCollection()
-        with open(csv_path, 'rt') as file:
+        with open(csv_path, 'rt', encoding = encoding) as file:
             for line in relevant_lines(file):
-                prods.append(Produto.from_csv(line))
+                prods.append(Product.from_csv(line))
         return prods
     #:
 
-    def append(self, novo_prod: Produto):
-        if self.search_by_id(novo_prod.id):
-            raise DuplicateValue(f'Produto jÃ¡ existe com id {novo_prod.id}')
-        self._produtos.append(novo_prod)
+    def export_to_csv(self, csv_path: str, encoding = 'UTF-8'):
+        if len(self._products) == 0:
+            raise ValueError("Coleccção vazia")
+        with open(csv_path, 'wt', encoding = encoding) as file:
+            for prod in self._products:
+                print(prod.to_csv(), file=file)
     #:
 
-    def search_by_id(self, id_: int) -> Produto | None:
-        for prod in self._produtos:
+    def append(self, novo_prod: Product):
+        if self.search_by_id(novo_prod.id):
+            raise DuplicateValue(f'Produto já existe com id {novo_prod.id}')
+        self._products.append(novo_prod)
+    #:
+
+    def search_by_id(self, id_: int) -> Product | None:
+        for prod in self._products:
             if prod.id == id_:
                 return prod
         return None
     #:
 
+    def search(self, find_fn):
+        for prod in self._products:
+            if find_fn(prod):
+                yield prod
+    #:
+
     def __iter__(self):
-        for prod in self._produtos:
-            yield prod #yeld e um return mas ele retorna um valor e volta é uma co-rotina
-            
+        for prod in self._products:
+            yield prod
+    #:
+
+    def __len__(self) -> int:
+        return len(self._products)
+    #:
+
+    def remove_by_id(self, id_: int) -> Product | None:
+        prod = self.search_by_id(id_)
+        if prod:
+            self._products.remove(prod)
+        return prod
+    #:
+
 
     def _dump(self):
-        for prod in self._produtos:
+        for prod in self._products:
             print(prod)
     #:
 #:
@@ -143,3 +189,4 @@ class DuplicateValue(Exception):
     """
     If there is a duplicate product in a ProductCollection.
     """
+

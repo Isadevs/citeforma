@@ -5,11 +5,13 @@ applications.
 import os
 import subprocess
 
+
 __all__ = [
     'accept',
     'show_msg',
+    # TODO: terminar depois
 ]
-    
+
 
 DEFAULT_INDENTATION = 3
 
@@ -97,10 +99,10 @@ def pause(msg: str="Pressione ENTER para continuar...", indent = DEFAULT_INDENTA
     msg = f"{' ' * indent}{msg}"
     match os.name:
         case 'nt':      # Windows (excepto Win9X)
-            # pode ser inseguro! utilizar mÃ³dulo subprocess se for...
+            # pode ser inseguro! utilizar módulo subprocess se for...
             show_msg(msg)
             os.system("pause>null|set/p=''")
-        case 'posix':   # Unixes e compatÃ­veis
+        case 'posix':   # Unixes e compatíveis
             subprocess.run(['read', '-s', '-n', '1', '-p', msg], check=True)
         case _:
             input(msg)
@@ -113,6 +115,64 @@ def cls():
     match os.name:
         case 'nt':      # Windows (excepto Win9X)
             subprocess.run(['cls'], shell=True)
-        case 'posix':   # Unixes e compatÃ­veis
+        case 'posix':   # Unixes e compatíveis
             subprocess.run(['clear'])
 #:
+
+
+"""
+PROGRAMAÇÃO FUNCIONAL (INTRO);
+
+# def filtra_pares(nums: Iterable) -> list:
+#     encontrados = []
+#     for num in nums:
+#         if num % 2 == 0:
+#             encontrados.append(num)
+#     return encontrados
+# #:
+
+# def filtra_positivos(nums: Iterable) -> list:
+#     encontrados = []
+#     for num in nums:
+#         if num > 0:
+#             encontrados.append(num)
+#     return encontrados
+# #:
+
+# criterio -> função que recebe um elemento e devolve ou True ou False
+#             (ou seja, é uma função booleana)
+
+nums = [10, -20, 31, 44, 73]
+nomes = ('Alberto', 'Ana', 'Arnaldo', 'Zé')
+
+def filtra(elems: Iterable, criterio) -> list:
+    encontrados = []
+    for elem in elems:
+        if criterio(elem):
+            encontrados.append(elem)
+    return encontrados
+#:
+
+def is_positive(num) -> bool:
+    return num > 0
+#:
+
+def cinco_ou_mais(txt: str) -> bool:
+    return len(txt) >= 5
+#:
+
+filtra(nums, is_positive)
+filtra(nomes, cinco_ou_mais)
+
+filtra(nums, lambda num: num > 0)
+filtra(nomes, lambda nome: len(nome) >= 5)
+
+
+# EM PSEUDO-JS:
+# 
+# filtra(nums, (num) => num > 0)
+# filtra(nums, function(num) { 
+#     return num > 0;
+# })
+
+"""

@@ -4,7 +4,7 @@ from products import PRODUCT_TYPES, ProductCollection, InvalidProdAttr
 from console_utils import accept, ask, show_msg, pause, cls
 
 
-PRODUCTS_CSV_PATH = 'products.csv'
+PRODUCTS_CSV_PATH = 'Sessao_04/documentos_servidor/products.csv'
 prods_collection: ProductCollection
 
 

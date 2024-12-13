@@ -103,7 +103,8 @@ def pause(msg: str="Pressione ENTER para continuar...", indent = DEFAULT_INDENTA
             show_msg(msg)
             os.system("pause>null|set/p=''")
         case 'posix':   # Unixes e compatíveis
-            subprocess.run(['read', '-s', '-n', '1', '-p', msg], check=True)
+            # subprocess.run(['read', '-s', '-n', '1', '-p', msg], check=True)
+            input(msg)
         case _:
             input(msg)
 #:

@@ -5,6 +5,11 @@ applications.
 import os
 import subprocess
 
+__all__ = [
+    'accept',
+    'show_msg',
+]
+    
 
 DEFAULT_INDENTATION = 3
 

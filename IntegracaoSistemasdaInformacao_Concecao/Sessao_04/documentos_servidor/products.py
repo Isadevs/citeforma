@@ -47,7 +47,7 @@ class Produto:
 
         # 2. Inicializar/definir o objecto
         self.id = id_
-        self.nome = nome
+        self.name = nome
         self.tipo = tipo
         self.quantidade = quantidade
         self.preco = preco
@@ -66,12 +66,12 @@ class Produto:
     #:
 
     def __str__(self) -> str:
-        return f'Produto[id: {self.id} nome: {self.nome}]'
+        return f'Produto[id: {self.id} nome: {self.name}]'
     #:
 
     def __repr__(self) -> str:
         cls_name = self.__class__.__name__
-        return f"{cls_name}({self.id}, '{self.nome}', '{self.tipo}', {self.quantidade}, Decimal('{self.preco}'))"
+        return f"{cls_name}({self.id}, '{self.name}', '{self.tipo}', {self.quantidade}, Decimal('{self.preco}'))"
     #:
 
     @property
@@ -117,6 +117,11 @@ class ProductCollection:
                 return prod
         return None
     #:
+
+    def __iter__(self):
+        for prod in self._produtos:
+            yield prod #yeld e um return mas ele retorna um valor e volta é uma co-rotina
+            
 
     def _dump(self):
         for prod in self._produtos:

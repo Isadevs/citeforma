@@ -48,8 +48,12 @@ def exec_menu():
                 exec_search_by_id()
             case 'PT' | 'TIPO':
                 exec_search_by_type()
+            case 'E' | 'ELIMINAR':
+                exec_delet_product()
             case 'T' | 'TERMINAR':
                 exec_end()
+            case 'G' | 'GUARDAR':
+                exec_save_catalog()
             case _:
                 print("Opção inválida")
 #:
@@ -96,6 +100,42 @@ def exec_search_by_type():
     else:
         show_msg(f"Não foram encontrados produtos com tipo {prod_type}.")
 
+    print()
+    pause()
+#:
+
+def exec_delet_product():
+    enter_menu("ELIMINAR PRODUTO")
+    id_ = accept(
+        msg ="Indique o ID do produto a eliminar: ",
+        error_msg = "ID {} inválido! Tente novamente.",
+        convert_fn=int,
+    ) 
+    if prod := prods_collection.search_by_id(id_):
+        confirmation = ask (f"Tem certeza que deseja eliminar o produto {prod.name} (S/s)?")
+        if confirmation == 'S' or confirmation == 's':
+            prods_collection.remove_by_id(id_)
+            show_msg(f"Produto com ID {id_} eliminado com sucesso")
+        else:
+            show_msg("Operação cancelada.")
+    else:
+        show_msg(f"Produto com ID {id_} não encontrado")
+    
+    print()
+    pause()
+#
+
+def exec_save_catalog():
+    enter_menu("GUARDAR CATÁLOGO")
+    
+    try:
+        prods_collection.export_to_csv(PRODUCTS_CSV_PATH)
+        show_msg(f"Catálogo guardado com sucesso em '{PRODUCTS_CSV_PATH}'.")
+    except ValueError as e:
+        show_msg(f"Erro {e}")
+    except Exception as e:
+        show_msg(f"Ocorreu um erro inesperado ao guardar o catálogo: {e}")
+    
     print()
     pause()
 #:

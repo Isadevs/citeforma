@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto - Aldeias Históricas</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="style.css">
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+       
+    </style>
+>>>>>>> be863319382720ae115b53a88b3950689325eb18
 </head>
 <body>
     <header>
         <!-- Barra de navegação -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<<<<<<< HEAD
             <a class="navbar-brand" href="#">
                 <img src="./castle.svg" alt="Home" width="30px">
+=======
+            <a class="navbar-brand" href="./home.html">
+                <img src="./castle.svg" alt="Home" class="home-icon" width="30px">
+>>>>>>> be863319382720ae115b53a88b3950689325eb18
                 Aldeias Históricas
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
@@ -23,6 +37,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="aldeiasDropdown" role="button" data-toggle="dropdown">
                             Aldeias Históricas
                         </a>
+<<<<<<< HEAD
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#linhares">Linhares da Beira</a>
                             <a class="dropdown-item" href="#marialva">Marialva</a>
@@ -35,8 +50,56 @@
                 <div class="navbar-nav ml-auto">
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
                     <a class="nav-link" href="#">Registo</a>
+=======
+                        
+                        <div class="dropdown-menu" aria-labelledby="aldeiasDropdown">
+                            <a class="dropdown-item" href="./linhares.html">Linhares da Beira</a>
+                            <a class="dropdown-item" href="./marialva.html">Marialva</a>
+                            <a class="dropdown-item" href="./monsanto.html">Monsanto</a>
+                            <a class="dropdown-item" href="./casteloRodrigo.html">Castelo Rodrigo</a>
+                            <a class="dropdown-item" href="./almeida.html">Almeida</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Links de autenticação à direita -->
+                    <div class="navbar-nav ml-auto">
+                            <a class="nav-link" href="./registro.html">Registro</a>
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        
+            <!-- Modal de Login -->
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Formulário de Login -->
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Nome de Usuário</label>
+                                    <input type="text" class="form-control" id="username" placeholder="" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Senha</label>
+                                    <input type="password" class="form-control" id="password" placeholder="" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <button type="button" class="btn btn-primary" id="loginButton">Login</button>
+                        </div>
+                    </div>
+>>>>>>> be863319382720ae115b53a88b3950689325eb18
                 </div>
-            </div>
+            </div>        
         </nav>
     </header>
 
@@ -68,6 +131,7 @@
     <!-- Conteúdo Principal -->
     <main>
         <div class="container">
+<<<<<<< HEAD
             <h2 class="mt-4">Mapas e Previsão do Tempo</h2>
             <!-- Previsão e Mapa para Cada Aldeia -->
             <div id="mapasCarousel" class="carousel slide" data-ride="carousel">
@@ -135,19 +199,100 @@
                                 <h4>Previsão do Tempo</h4>
                                 <div id="clima-almeida"></div>
                             </div>
-                        </div>
+=======
+            <br>
+            <br>
+            <h2 style="text-align: center;">Aldeias Históricas</h2>
+            <br>
+            <!-- Slideshow (Carousel) -->
+            <div id="aldeiasCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="pagina-linhares.html">
+                            <img src="./imagens/linhares da beira/linhares1.jpg" class="d-block w-100" alt="Linhares da Beira">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-marialva.html">
+                            <img src="./imagens/marialva/marialva1.jpg" class="d-block w-100" alt="Marialva">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-monsanto.html">
+                            <img src="./imagens/monsanto/monsanto1.jpg" class="d-block w-100" alt="Monsanto">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-castelo-rodrigo.html">
+                            <img src="./imagens/castelo rodrigo/castelo_rodrigo1.jpg" class="d-block w-100" alt="Castelo Rodrigo">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-almeida.html">
+                            <img src="./imagens/almeida/almeida1.jpg" class="d-block w-100" alt="Almeida">
+                        </a>
                     </div>
                 </div>
+                <a class="carousel-control-prev" href="#aldeiasCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#aldeiasCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </div>
+    
+            <!-- Vídeo promocional -->
+            <h2 class="mt-5">Vídeo Promocional</h2>
+            <br>
+            <br>
+            <div class="ratio ratio-16x9;">
+                <iframe src="https://www.youtube.com/embed/kP2OtQrVm1o" title="Vídeo Promocional das Aldeias Históricas" allowfullscreen class="correcao-video w-100"></iframe>
+            </div>
+
+        <div class="container mt-4">
+            <h2>Temperatura e Clima nas Aldeias</h2>
+            <div class="row">
+                <!-- Coluna para o Mapa -->
+                <div class="col-md-4" id="map-container">
+                    <div id="map"></div>
+                </div>
+
+                <!-- Coluna para o Carrossel -->
+                <div class="col-md-8">
+                    <div id="weatherCarousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators" id="carousel-indicators">
+                            <!-- Indicadores dinâmicos serão adicionados aqui -->
+                        </ol>
+                        <div class="carousel-inner" id="carousel-inner">
+                            <!-- Slides dinâmicos serão inseridos aqui -->
+>>>>>>> be863319382720ae115b53a88b3950689325eb18
+                        </div>
+                        <a class="carousel-control-prev" href="#weatherCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="carousel-control-next" href="#weatherCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>
+                        </a>
+                    </div>
+                </div>
+<<<<<<< HEAD
                 <a class="carousel-control-prev" href="#mapasCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 </a>
                 <a class="carousel-control-next" href="#mapasCarousel" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 </a>
+=======
+>>>>>>> be863319382720ae115b53a88b3950689325eb18
             </div>
         </div>
     </main>
 
+<<<<<<< HEAD
     <footer class="text-center mt-4">
         <p>&copy; 2024 Isabella Muniz</p>
     </footer>
@@ -192,6 +337,145 @@
             obterPrevisao(1040500, "clima-casteloRodrigo"); // Castelo Rodrigo (ID fictício, substituir pelo ID real)
             obterPrevisao(1050500, "clima-almeida");
         });
+=======
+    <footer>
+        <div style="text-align: center;">
+            <p>@Isabella Muniz</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+
+        // Função para quando o botão "Entrar" for pressionado
+        document.getElementById('loginButton').addEventListener('click', function () {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Simples validação
+            if (username && password) {
+                alert('Login bem-sucedido!');
+                // Aqui você pode adicionar a lógica de autenticação
+                // Fechar o modal após login
+                var modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                modal.hide();
+            } else {
+                alert('Por favor, preencha ambos os campos.');
+            }
+        });
+
+        const aldeias = [
+            { nome: "Linhares da Beira", localId: 1010500, lat: 40.5262, lon: -7.4508 },
+            { nome: "Marialva", localId: 1020500, lat: 40.8997, lon: -7.2542 },
+            { nome: "Monsanto", localId: 1030300, lat: 40.0396, lon: -7.1178 },
+            { nome: "Castelo Rodrigo", localId: 1030800, lat: 40.8752, lon: -6.9638 },
+            { nome: "Almeida", localId: 1040200, lat: 40.7251, lon: -6.9075 }
+        ];
+
+        const carouselInner = document.getElementById('carousel-inner');
+        const carouselIndicators = document.getElementById('carousel-indicators');
+
+        let map;
+        let marker;
+
+        async function fetchWeatherData(localId) {
+            try {
+                const response = await fetch(`https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${localId}.json`);
+                if (!response.ok) throw new Error('Erro ao buscar dados da API');
+                const data = await response.json();
+                return data.data.slice(0, 5); // Retorna os próximos 5 dias
+            } catch (error) {
+                console.error(`Erro ao buscar dados para localId ${localId}:`, error);
+                return [];
+            }
+        }
+
+        function getWeatherIcon(condition) {
+            if (condition.toLowerCase().includes('chuva')) {
+                return './imagens/chuva.png';
+            } else if (condition.toLowerCase().includes('nuvens') || condition.toLowerCase().includes('nublado')) {
+                return './imagens/nublado.png';
+            } else if (condition.toLowerCase().includes('sol')) {
+                return './imagens/sol.png';
+            } else {
+                return './imagens/aguaceiros.png';
+            }
+        }
+
+        function updateMap(lat, lon) {
+            if (!map) {
+                map = L.map('map').setView([lat, lon], 13); // Configura o mapa inicialmente
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+
+                marker = L.marker([lat, lon]).addTo(map);
+            } else {
+                map.setView([lat, lon], 13);
+                marker.setLatLng([lat, lon]);
+            }
+        }
+
+        async function loadWeather() {
+            // Loop para criar indicadores e slides do carrossel
+            for (let i = 0; i < aldeias.length; i++) {
+                const aldeia = aldeias[i];
+                const weatherData = await fetchWeatherData(aldeia.localId);
+
+                // Criar indicador do carrossel
+                const indicator = document.createElement('li');
+                indicator.setAttribute('data-target', '#weatherCarousel');
+                indicator.setAttribute('data-slide-to', i);
+                if (i === 0) indicator.classList.add('active'); // Primeiro item ativo
+                carouselIndicators.appendChild(indicator);
+
+                // Criar slide do carrossel
+                const slide = document.createElement('div');
+                slide.className = `carousel-item ${i === 0 ? 'active' : ''}`;
+                slide.innerHTML = `<h4>${aldeia.nome}</h4>`;
+
+                // Adicionar previsão do tempo no slide
+                if (weatherData.length === 0) {
+                    slide.innerHTML += `<p>Erro ao carregar dados para ${aldeia.nome}.</p>`;
+                } else {
+                    weatherData.forEach(day => {
+                        const date = new Date(day.forecastDate).toLocaleDateString('pt-PT');
+                        const icon = getWeatherIcon(day.predWindDir || 'nuvens'); // Ícone baseado no clima
+                        slide.innerHTML += `
+                            <div>
+                                <p>${date}: ${day.tMin}°C - ${day.tMax}°C</p>
+                                <img src="${icon}" alt="Condição Climática" class="weather-icon">
+                            </div>
+                        `;
+                    });
+                }
+
+                // Adiciona o slide ao carrossel
+                carouselInner.appendChild(slide);
+
+                // Inicializa o mapa no primeiro slide
+                if (i == 0) {
+                    updateMap(aldeia.lat, aldeia.lon);
+                }
+            }
+
+            // Atualizar o mapa quando o carrossel muda
+            $('#weatherCarousel').on('slid.bs.carousel', function (e) {
+                const activeIndex = $(e.relatedTarget).index(); // Índice do slide ativo
+                const aldeia = aldeias[activeIndex]; // Obter aldeia correspondente
+                updateMap(aldeia.lat, aldeia.lon); // Atualizar mapa para a aldeia ativa
+            });
+        }
+
+        // Chamada para carregar o clima ao inicializar a página
+        loadWeather();
+
+>>>>>>> be863319382720ae115b53a88b3950689325eb18
     </script>
 </body>
 </html>

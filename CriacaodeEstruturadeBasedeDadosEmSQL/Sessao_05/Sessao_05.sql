@@ -1,0 +1,50 @@
+/*Crie uma função que determine se um número de cartão de cidadão recebido 
+como argumento é válido. 
+A função deve devolver true se for válido ou false se for inválido.*/ 
+
+use myfuncs;
+
+DELIMITER $$
+CREATE FUNCTION GetNumberFromChar(letter char(1))
+RETURNS INT 
+DETERMINISTIC
+BEGIN 
+CASE letter
+	WHEN 'A' THEN RETURN 10;
+	WHEN 'B' THEN RETURN 11;
+    WHEN 'C' THEN RETURN 11;
+    WHEN 'D' THEN RETURN 11;
+    WHEN 'E' THEN RETURN 11;
+    WHEN 'F' THEN RETURN 11;
+    WHEN 'G' THEN RETURN 11;
+    WHEN 'H' THEN RETURN 11;
+    WHEN 'I' THEN RETURN 11;
+    WHEN 'J' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+    WHEN 'A' THEN RETURN 11;
+END CASE;
+END $$
+DELIMITER ;
+
+DELIMITER
+
+CREATE FUNCTION ValidarNumeroCC
+BEGIN
+	DECLARE SUM INT DEFAULT 0;
+    DECLARE secondDigit BOOLEAN DEFAULT FALSE
+    
+

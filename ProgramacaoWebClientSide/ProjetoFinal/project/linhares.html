@@ -3,9 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projetos - Aldeias Históricas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <!-- Barra de navegação com Bootstrap -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="./castle.svg" alt="Home" class="home-icon" width="30px">
+                Aldeias Históricas
+            </a>
+            
+            <!-- Botão do colapso para mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu de navegação -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aldeiasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Aldeias Históricas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="aldeiasDropdown">
+                            <a class="dropdown-item" href="./linhares.html">Linhares da Beira</a>
+                            <a class="dropdown-item" href="./marialva.html">Marialva</a>
+                            <a class="dropdown-item" href="./monsanto.html">Monsanto</a>
+                            <a class="dropdown-item" href="./casteloRodrigo.html">Castelo Rodrigo</a>
+                            <a class="dropdown-item" href="./almeida.html">Almeida</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Links de autenticação à direita -->
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="#">Registo</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Aldeias Históricas</h2>
+            
+            <!-- Slideshow (Carousel) -->
+            <div id="aldeiasCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="pagina-linhares.html">
+                            <img src="./imagens/linhares da beira/linhares1.jpg" class="d-block w-100" alt="Linhares da Beira">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-marialva.html">
+                            <img src="./imagens/marialva/marialva1.jpg" class="d-block w-100" alt="Marialva">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-monsanto.html">
+                            <img src="./imagens/monsanto/monsanto1.jpg" class="d-block w-100" alt="Monsanto">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-castelo-rodrigo.html">
+                            <img src="./imagens/castelo rodrigo/castelo_rodrigo1.jpg" class="d-block w-100" alt="Castelo Rodrigo">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="pagina-almeida.html">
+                            <img src="./imagens/almeida/almeida1.jpg" class="d-block w-100" alt="Almeida">
+                        </a>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#aldeiasCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#aldeiasCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </div>
     
-</body>
-</html>
+            <!-- Vídeo promocional -->
+            <h2 class="mt-5">Vídeo Promocional</h2>
+            <div class="ratio ratio-16x9" style="background-color:tomato;">
+                <iframe src="https://www.youtube.com/embed/kP2OtQrVm1o" title="Vídeo Promocional das Aldeias Históricas" allowfullscreen class="correcao-video w-100"></iframe>
+            </div>
+    
+            <!-- Mapa e Temperatura das Aldeias -->
+            <h2 class="mt-5">Mapas e Temperaturas das Aldeias</h2>
+            <div id="mapasCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Linhares da Beira</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106303.8837323922!2d-7.382145754139239!3d40.33313515209753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1bcb6a8a41999b%3A0x40abf64b1303bb62!2sLinhares%20da%20Beira%2C%20Portugal!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" class="correcao-video w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Temperatura em Linhares da Beira</h4>
+                                <p>Temperatura: 20°C</p>
+                                <p>Condições: Ensolarado</p>
+                                <p>Umidade: 45%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Marialva</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8173.179488508678!2d-7.172552019798474!3d40.41585246957412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1c9c64c46cc2db%3A0x90e12e5a4fd3df8c!2sMarialva%2C%20Portugal!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" class="correcao-video w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Temperatura em Marialva</h4>
+                                <p>Temperatura: 22°C</p>
+                                <p>Condições: Parcialmente Nublado</p>
+                                <p>Umidade: 50%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Monsanto</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106576.5655603827!2d-7.303858559422401!3d40.20563984455247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1cb7ae524f4e09%3A0xc2b5f8e3ab7f80ae!2sMonsanto%2C%20Portugal!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" class="correcao-video w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Temperatura em Monsanto</h4>
+                                <p>Temperatura: 19°C</p>
+                                <p>Condições: Nublado</p>
+                                <p>Umidade: 60%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Castelo Rodrigo</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106579.21978705211!2d-6.966528520555558!3d40.72161007606165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1cb0dbbc43c6c3%3A0xa7af19fa3f40e92d!2sCastelo%20Rodrigo%2C%20Portugal!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" class="correcao-video w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Temperatura em Castelo Rodrigo</h4>
+                                <p>Temperatura: 21°C</p>
+                                <p>Condições: Ensolarado</p>
+                                <p>Umidade: 40%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Almeida</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106576.1572637548!2d-6.717996052021005!3d40.42828008192791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1cb6c9a90958b%3A0x54ed4a5ff391e8c3!2sAlmeida%2C%20Portugal!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" class="correcao-video w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Temperatura em Almeida</h4>
+                                <p>Temperatura: 18°C</p>
+                                <p>Condições: Ensolarado</p>
+                                <p>Umidade: 55%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#mapasCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#mapasCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </div>
+        </div>
+
+        
+    </main>
+    
+    <footer>
+        <!-- Conteúdo principal do footer -->
+         <div style="text-align: center;">
+            <br>
+            <br>
+            <p>@Isabella Muniz</p>
+         </div>
+    </footer>
